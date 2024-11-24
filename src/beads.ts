@@ -39,8 +39,8 @@ class Beads {
             window.addEventListener("deviceorientation", (event) => {
                 if (event != null) {
                     if (event.beta != null && event.gamma != null) {
-                        if(this.pos.y >= this.limitUp && event.beta > 0) {
-                            this.pos.y += event.beta * 0.0001;
+                        if( this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.beta > 0) {
+                            this.pos.y += event.beta * 0.00002;
                         }
                         this.p5.textSize(10);
                         this.p5.fill("#000000");

@@ -609,7 +609,7 @@ class App {
         this.colmun = 9;
         this.beadsHeight = this.height / 7.5;
         this.pos = new (0, _vector2D.Vector2D)(p.width / 2, p.height / 2);
-        this.bead = new (0, _beads.Beads)(p, new (0, _vector2D.Vector2D)(p.width / 2, p.height / 2), this.beadsHeight / 2.0);
+        this.bead = new (0, _beads.Beads)(p, new (0, _vector2D.Vector2D)(p.width / 2, p.height / 2), this.beadsHeight / 2.0, p.height / 2 - this.height / 2, p.height / 2 + this.height / 2);
     }
     draw() {
         this.bead.update();

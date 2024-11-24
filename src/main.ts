@@ -32,7 +32,7 @@ class App {
         this.colmun = 8 + 1;
         this.beadsHeight = this.height / 7.5;
         this.pos = new Vector2D(p.width / 2, p.height / 2);
-        this.bead = new Beads(p, new Vector2D(p.width / 2, p.height / 2), this.beadsHeight / 2.0);
+        this.bead = new Beads(p, new Vector2D(p.width / 2, p.height / 2), this.beadsHeight / 2.0, p.height / 2 - this.height /2 , p.height / 2 + this.height / 2);
     }
 
     draw() {

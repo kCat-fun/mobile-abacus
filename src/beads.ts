@@ -46,7 +46,7 @@ class Beads {
                         this.p5.textSize(10);
                         this.p5.fill("#000000");
                         this.p5.noStroke();
-                        this.p5.text(`beta: ${event.gamma}`, 5, 15);
+                        this.p5.text(`ganma: ${event.gamma}`, 5, 15);
                     }
                 }
             }, true);

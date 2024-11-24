@@ -39,14 +39,14 @@ class Beads {
         if (window.DeviceMotionEvent) {
             window.addEventListener("deviceorientation", (event) => {
                 if (event != null) {
-                    if (event.beta != null && event.gamma != null) {
-                        if( this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.beta > 0) {
-                            this.pos.y += event.beta * 0.0001;
+                    if (event.gamma != null) {
+                        if( this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.gamma > 0) {
+                            this.pos.y += event.gamma * 0.0001;
                         }
                         this.p5.textSize(10);
                         this.p5.fill("#000000");
                         this.p5.noStroke();
-                        this.p5.text(`beta: ${event.beta}`, 5, 15);
+                        this.p5.text(`beta: ${event.gamma}`, 5, 15);
                     }
                 }
             }, true);

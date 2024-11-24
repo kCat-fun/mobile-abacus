@@ -33238,7 +33238,7 @@ class Beads {
         if (window.DeviceMotionEvent) window.addEventListener("deviceorientation", (event)=>{
             if (event != null) {
                 if (event.beta != null && event.gamma != null) {
-                    this.pos.y += event.beta * 0.05;
+                    this.pos.y += event.beta * 0.001;
                     this.p5.textSize(10);
                     this.p5.fill("#000000");
                     this.p5.noStroke();

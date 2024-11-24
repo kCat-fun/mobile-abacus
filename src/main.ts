@@ -31,8 +31,11 @@ class App {
         this.height = p.height * 0.8;
         this.colmun = 8 + 1;
         this.beadsHeight = this.height / 7.5;
-        this.pos = new Vector2D(p.width / 2, p.height / 2);
-        this.bead = new Beads(p, new Vector2D(p.width / 2, p.height / 2), this.beadsHeight / 2.0, p.height / 2 - this.height /2 , p.height / 2 + this.height / 2);
+        this.pos = new Vector2D(p.width / 2.0, p.height / 2.0);
+        this.bead = new Beads(
+            p, new Vector2D(p.width / 2, p.height / 2), this.beadsHeight / 2.0,
+            this.pos.y - this.height / 2.0, this.pos.y + this.height / 2.0
+        );
     }
 
     draw() {
@@ -42,7 +45,7 @@ class App {
         this.p.noFill();
 
         this.p.stroke("#404040");
-        for(let i = 0; i < this.colmun; i++) {
+        for (let i = 0; i < this.colmun; i++) {
             this.p.line(
                 this.p.width / 2 - this.width / 2 + this.width / this.colmun * i, this.p.height / 2 - this.height / 2,
                 this.p.width / 2 - this.width / 2 + this.width / this.colmun * i, this.p.height / 2 + this.height / 2

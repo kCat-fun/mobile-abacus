@@ -608,8 +608,8 @@ class App {
         this.height = p.height * 0.8;
         this.colmun = 9;
         this.beadsHeight = this.height / 7.5;
-        this.pos = new (0, _vector2D.Vector2D)(p.width / 2, p.height / 2);
-        this.bead = new (0, _beads.Beads)(p, new (0, _vector2D.Vector2D)(p.width / 2, p.height / 2), this.beadsHeight / 2.0, p.height / 2 - this.height / 2, p.height / 2 + this.height / 2);
+        this.pos = new (0, _vector2D.Vector2D)(p.width / 2.0, p.height / 2.0);
+        this.bead = new (0, _beads.Beads)(p, new (0, _vector2D.Vector2D)(p.width / 2, p.height / 2), this.beadsHeight / 2.0, this.pos.y - this.height / 2.0, this.pos.y + this.height / 2.0);
     }
     draw() {
         this.bead.update();
@@ -33241,7 +33241,7 @@ class Beads {
         if (window.DeviceMotionEvent) window.addEventListener("deviceorientation", (event)=>{
             if (event != null) {
                 if (event.beta != null && event.gamma != null) {
-                    if (this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.beta > 0) this.pos.y += event.beta * 0.00007;
+                    if (this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.beta > 0) this.pos.y += event.beta * 0.0001;
                     this.p5.textSize(10);
                     this.p5.fill("#000000");
                     this.p5.noStroke();

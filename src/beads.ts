@@ -5,11 +5,15 @@ class Beads {
     pos: Vector2D;
     p5: p5;
     radius: number;
+    limitUp: number;
+    limitDown: number;
 
-    constructor(p5: p5, pos: Vector2D,radius: number) {
+    constructor(p5: p5, pos: Vector2D, radius: number, limitUp: number, limitDown: number) {
         this.pos = pos;
         this.p5 = p5;
         this.radius = radius;
+        this.limitUp = limitUp;
+        this.limitDown = limitDown;
     }
 
     draw() {
@@ -35,7 +39,9 @@ class Beads {
             window.addEventListener("deviceorientation", (event) => {
                 if (event != null) {
                     if (event.beta != null && event.gamma != null) {
-                        this.pos.y += event.beta * 0.001;
+                        if(this.pos.y >= this.limitUp && event.beta > 0) {
+                            this.pos.y += event.beta * 0.0001;
+                        }
                         this.p5.textSize(10);
                         this.p5.fill("#000000");
                         this.p5.noStroke();

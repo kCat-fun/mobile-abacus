@@ -33220,10 +33220,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Beads", ()=>Beads);
 class Beads {
-    constructor(p5, pos, radius){
+    constructor(p5, pos, radius, limitUp, limitDown){
         this.pos = pos;
         this.p5 = p5;
         this.radius = radius;
+        this.limitUp = limitUp;
+        this.limitDown = limitDown;
     }
     draw() {
         // draw beads
@@ -33238,7 +33240,7 @@ class Beads {
         if (window.DeviceMotionEvent) window.addEventListener("deviceorientation", (event)=>{
             if (event != null) {
                 if (event.beta != null && event.gamma != null) {
-                    this.pos.y += event.beta * 0.001;
+                    if (this.pos.y >= this.limitUp && event.beta > 0) this.pos.y += event.beta * 0.0001;
                     this.p5.textSize(10);
                     this.p5.fill("#000000");
                     this.p5.noStroke();

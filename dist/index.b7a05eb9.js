@@ -33229,6 +33229,7 @@ class Beads {
     }
     draw() {
         // draw beads
+        this.p5.stroke("#000000");
         this.p5.strokeWeight(1);
         this.p5.fill("#DEB887");
         this.p5.triangle(this.pos.x - this.radius, this.pos.y, this.pos.x + this.radius, this.pos.y, this.pos.x, this.pos.y - this.radius);
@@ -33240,7 +33241,7 @@ class Beads {
         if (window.DeviceMotionEvent) window.addEventListener("deviceorientation", (event)=>{
             if (event != null) {
                 if (event.beta != null && event.gamma != null) {
-                    if (this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.beta > 0) this.pos.y += event.beta * 0.00002;
+                    if (this.limitUp < this.pos.y && this.pos.y < this.limitDown && event.beta > 0) this.pos.y += event.beta * 0.00007;
                     this.p5.textSize(10);
                     this.p5.fill("#000000");
                     this.p5.noStroke();
